@@ -15,8 +15,7 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
 
         print subject_afs
 
-        #for svs_type in ['TWIX', 'RDA']:
-
+        ########## for svs_type in ['TWIX', 'RDA']:
 
         met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX',  voxel_name))
         h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name))
@@ -24,14 +23,11 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
         met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))
         h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))
 
-        print os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name)
         print met_file
         print met_dir
         # copy svs data to local dir
-        shutil.copy(met_file, met_dir)
-        shutil.copy(h20_file, h20_dir)
-
-
+        os.system('cp %s %s '%(met_file, met_dir))
+        os.system('cp %s %s '%(h20_file, h20_dir))
 
 check_spectra(['BTBT'], ssri_workspace, afs_dir, 'day1', 'ACC')
 
