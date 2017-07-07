@@ -25,6 +25,7 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
         h20_file = glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))
 
         print met_file
+        print h20_file
 
         # shutil.copy(met_file, met_dir)
         # shutil.copy(h20_file, h20_dir)
