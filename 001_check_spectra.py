@@ -11,8 +11,9 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
 
         # Input/outut dirs
         subject_afs = os.path.join(afs_dir, subject, study_id)
-        subject_dir = mkdir_path(os.path.join(workspace_dir, subject))
+        subject_dir = mkdir_path(os.path.join(workspace_dir, subject, study_id))
 
+        print subject_afs
 
         #for svs_type in ['TWIX', 'RDA']:
 
