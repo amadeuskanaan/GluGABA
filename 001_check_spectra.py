@@ -19,8 +19,8 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
         met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS_TWIX', voxel_name))
         h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS_TWIX', '%s_w'%voxel_name))
 
-        shutil.copy(glob('%s/*' %os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name), met_dir))
-        shutil.copy(glob('%s/*' %os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name), h20_dir))
+        shutil.copy(glob('%s/*' %os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name)), met_dir)
+        shutil.copy(glob('%s/*' %os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name)), h20_dir)
 
         # copy svs data to local dir
 
