@@ -29,7 +29,6 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
         if not os.path.isfile(os.path.join(twx_dir, voxel_name, fpd_name)):
             subprocess.call(preproc)
 
-run_frequency_phase_correction(['BTBT'], ssri_workspace, 'day1', 'ACC', 'PRESS')
-
-
+run_frequency_phase_correction(['BTBT', 'KLET','VM9T'], ssri_workspace, 'day1', 'ACC', 'PRESS')
+run_frequency_phase_correction(['BTBT', 'KLET','VM9T'], ssri_workspace, 'day1', 'M1', 'PRESS')
 
