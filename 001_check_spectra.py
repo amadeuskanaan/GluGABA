@@ -30,8 +30,3 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
         os.system('cp %s %s '%(h20_file, h20_dir))
 
 check_spectra(['BTBT'], ssri_workspace, afs_dir, 'day1', 'ACC')
-
-
-
-
-
