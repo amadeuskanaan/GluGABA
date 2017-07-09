@@ -27,5 +27,5 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
         os.system('cp %s %s '%(met_file, met_dir))
         os.system('cp %s %s '%(h20_file, h20_dir))
 
-check_spectra(['BTBT', 'KLET','VM8T'], ssri_workspace, afs_dir, 'day1', 'ACC')
-check_spectra(['BTBT', 'KLET','VM8T'], ssri_workspace, afs_dir, 'day1', 'M1')
+check_spectra(['BTBT', 'KLET','VM9T'], ssri_workspace, afs_dir, 'day1', 'ACC')
+check_spectra(['BTBT', 'KLET','VM9T'], ssri_workspace, afs_dir, 'day1', 'M1')
