@@ -30,7 +30,7 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
                               Building the control file
             '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
             print '...building control file'
-            file = open(os.path.join(lcmodel_dir, 'contro,l'), "w")
+            file = open(os.path.join(lcmodel_dir, 'control'), "w")
             file.write(" $LCMODL\n")
             file.write(" title= 'TWIX - %s' \n" % title)
             file.write(" srcraw= '%s' \n" % met)
