@@ -23,10 +23,9 @@ def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
         met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))[0]
         h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))[0]
 
-        print met_file
-        print met_dir
         # copy svs data to local dir
         os.system('cp %s %s '%(met_file, met_dir))
         os.system('cp %s %s '%(h20_file, h20_dir))
 
-check_spectra(['BTBT'], ssri_workspace, afs_dir, 'day1', 'ACC')
+check_spectra(['BTBT', 'KLET','VM8T'], ssri_workspace, afs_dir, 'day1', 'ACC')
+check_spectra(['BTBT', 'KLET','VM8T'], ssri_workspace, afs_dir, 'day1', 'M1')
