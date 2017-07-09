@@ -30,5 +30,5 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
         #    print ' Running Frequnency and Phase drift correction for %s' %voxel_name
         subprocess.call(preproc)
 
-run_frequency_phase_correction(['BTBT'], ssri_workspace, 'day1', 'ACC')
+run_frequency_phase_correction(['BTBT'], ssri_workspace, 'day1', 'ACC', 'PRESS')
 
