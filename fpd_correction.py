@@ -20,11 +20,11 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
 
         if svs_type == 'PRESS':
             preproc = ['matlab', '-nodesktop', '-nosplash', '-noFigureWindows',
-                        '-r "run_pressproc_auto.m(\'%s\') ; quit;"'%voxel_name]
+                        '-r "run_pressproc_auto(\'%s\') ; quit;"'%voxel_name]
 
         elif svs_type == 'MEGA_PRESS':
             preproc = ['matlab', '-nodesktop', '-nosplash', '-noFigureWindows',
-                       '-r "run_megapressproc_auto.m.m(\'%s\') ; quit;"' % voxel_name]
+                       '-r "run_megapressproc_auto(\'%s\') ; quit;"' % voxel_name]
 
         #if not os.path.isfile(os.path.join(twx_xdir, voxel_name, voxel_name, '%s_diff_lcm' %voxel_name)):
         #    print ' Running Frequnency and Phase drift correction for %s' %voxel_name
