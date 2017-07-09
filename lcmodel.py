@@ -134,6 +134,7 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
 
 
 
-run_frequency_phase_correction(['BTBT'], ssri_workspace, 'day1', 'ACC', 'PRESS')
+run_frequency_phase_correction(['BTBT', 'KLET','VM8T'], ssri_workspace, 'day1', 'ACC', 'PRESS')
+run_frequency_phase_correction(['BTBT', 'KLET','VM8T'], ssri_workspace, 'day1', 'M1', 'PRESS')
 
 
