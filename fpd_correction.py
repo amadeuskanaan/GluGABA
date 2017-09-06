@@ -8,6 +8,8 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
 
     for subject in population:
 
+        print '###################################################################'
+        print 'Running Frequency and phase drift Correction for subject:', subject
 
         subject_dir = mkdir_path(os.path.join(workspace_dir, subject, study_id))
 

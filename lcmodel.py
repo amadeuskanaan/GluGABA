@@ -120,18 +120,21 @@ def run_frequency_phase_correction(population, workspace_dir, study_id, voxel_na
 
         if svs_type == 'PRESS':
 
-            shutil.copy(os.path.join(twx_dir, voxel_name, '%s_lcm' % voxel_name), os.path.join(met_dir, 'RAW'))
-            shutil.copy(os.path.join(twx_dir, '%s_w' % voxel_name, '%s_w_lcm' % voxel_name), os.path.join(h2o_dir, 'RAW'))
-            met = os.path.join(met_dir, 'RAW')
-            h2o = os.path.join(h2o_dir, 'RAW')
-            make_press_control_file(lcm_dir, met, h2o, '%s - %s' % (subject, voxel_name), 4.0, 0)
+            if not os.path.join(lcm_dir, 'ps.pdf'):
+
+                shutil.copy(os.path.join(twx_dir, voxel_name, '%s_lcm' % voxel_name), os.path.join(met_dir, 'RAW'))
+                shutil.copy(os.path.join(twx_dir, '%s_w' % voxel_name, '%s_w_lcm' % voxel_name), os.path.join(h2o_dir, 'RAW'))
+                met = os.path.join(met_dir, 'RAW')
+                h2o = os.path.join(h2o_dir, 'RAW')
+                make_press_control_file(lcm_dir, met, h2o, '%s - %s' % (subject, voxel_name), 4.0, 0)
 
         elif svs_type == 'MEGA_PRESS':
-            shutil.copy(os.path.join(twx_dir, voxel_name, '%s_diff_lcm' % voxel_name), os.path.join(met_dir, 'RAW'))
-            shutil.copy(os.path.join(twx_dir, '%s_w' % voxel_name, '%s_w_lcm' % voxel_name), os.path.join(h2o_dir, 'RAW'))
-            met = os.path.join(met_dir, 'RAW')
-            h2o = os.path.join(h2o_dir, 'RAW')
-
+            if not os.path.join(lcm_dir, 'ps.pdf'):
+                shutil.copy(os.path.join(twx_dir, voxel_name, '%s_diff_lcm' % voxel_name), os.path.join(met_dir, 'RAW'))
+                shutil.copy(os.path.join(twx_dir, '%s_w' % voxel_name, '%s_w_lcm' % voxel_name), os.path.join(h2o_dir, 'RAW'))
+                met = os.path.join(met_dir, 'RAW')
+                h2o = os.path.join(h2o_dir, 'RAW')
+                #make_megapress_control_file(lcm_dir, met, h2o, '%s - %s' % (subject, voxel_name), 4.0, 0)
 
 
 run_frequency_phase_correction(['BTBT', 'KLET','VM9T'], ssri_workspace, 'day1', 'ACC', 'PRESS')
