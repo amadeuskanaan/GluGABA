@@ -24,25 +24,22 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
         twx_met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX',  voxel_name))
         twx_h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name))
 
+        twx_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))[0]
+        twx_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))[0]
+
         rda_met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name))
         rda_h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name))
 
-        twx_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))[0]
-        twx_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))[0]
 
         rda_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,voxel_name)))[0]
         rda_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,voxel_name)))[0]
 
-        print rda_met_file
-        print ''
-        print rda_h20_file
-
         # copy svs data to local dir
-        # os.system('cp %s %s '%(twx_met_dir, twx_met_file))
-        # os.system('cp %s %s '%(twx_h20_dir, twx_h20_file))
-
-        os.system('cp %s %s ' % (rda_met_dir, rda_met_file))
-        os.system('cp %s %s ' % (rda_h20_dir, rda_h20_file))
+        os.system('cp %s %s '%(twx_met_dir, twx_met_file))
+        os.system('cp %s %s '%(twx_h20_dir, twx_h20_file))
+        #
+        # os.system('cp %s %s ' % (rda_met_dir, rda_met_file))
+        # os.system('cp %s %s ' % (rda_h20_dir, rda_h20_file))
 
 check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'ACC', 'PRESS')
 check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'M1', 'PRESS')
