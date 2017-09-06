@@ -38,8 +38,8 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
         print rda_h20_file
 
         # copy svs data to local dir
-        os.system('cp %s %s '%(twx_met_dir, twx_met_file))
-        os.system('cp %s %s '%(twx_h20_dir, twx_h20_file))
+        # os.system('cp %s %s '%(twx_met_dir, twx_met_file))
+        # os.system('cp %s %s '%(twx_h20_dir, twx_h20_file))
 
         os.system('cp %s %s ' % (rda_met_dir, rda_met_file))
         os.system('cp %s %s ' % (rda_h20_dir, rda_h20_file))
