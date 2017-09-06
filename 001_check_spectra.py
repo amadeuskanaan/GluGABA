@@ -5,28 +5,45 @@ from variables import *
 from utils.utils import mkdir_path
 
 
-def check_spectra(population, workspace_dir, afs_dir, study_id, voxel_name):
+def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, sequence):
 
     for subject in population:
 
         # Input/outut dirs
-        subject_afs = os.path.join(afs_dir, subject, study_id)
-        subject_dir = mkdir_path(os.path.join(workspace_dir, subject, study_id))
+        subject_afs = os.path.join(afs_dir, subject, study_day)
+        subject_dir = mkdir_path(os.path.join(workspace_dir, subject, study_day))
 
-        print subject_afs
+        if sequence is 'PRESS':
+            seq = 'se'
+        elif sequence is 'MEGA_PRESS':
+            seq = 'mp'
+
 
         ########## for svs_type in ['TWIX', 'RDA']:
 
-        met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX',  voxel_name))
-        h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name))
+        twx_met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX',  voxel_name))
+        twx_h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name))
 
-        met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))[0]
-        h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))[0]
+        rda_met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name))
+        rda_h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name))
+
+        twx_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))[0]
+        twx_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))[0]
+
+        rda_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,voxel_name)))[0]
+        rda_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,voxel_name)))[0]
+
+        print rda_met_file
+        print ''
+        print rda_h20_file
 
         # copy svs data to local dir
-        os.system('cp %s %s '%(met_file, met_dir))
-        os.system('cp %s %s '%(h20_file, h20_dir))
+        os.system('cp %s %s '%(twx_met_dir, twx_met_file))
+        os.system('cp %s %s '%(twx_h20_dir, twx_h20_file))
 
-check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'ACC')
-check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'M1')
-check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'M1m')
+        os.system('cp %s %s ' % (rda_met_dir, rda_met_file))
+        os.system('cp %s %s ' % (rda_h20_dir, rda_h20_file))
+
+check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'ACC', 'PRESS')
+check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'M1', 'PRESS')
+check_spectra(['KA3X'], ssri_workspace, afs_dir, 'day1', 'M1m', 'MEGA_PRESS')
