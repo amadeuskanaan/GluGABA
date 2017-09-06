@@ -31,8 +31,8 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
         rda_h20_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name))
 
 
-        rda_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,voxel_name)))[0]
-        rda_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,voxel_name)))[0]
+        # rda_met_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,voxel_name)))[0]
+        # rda_h20_file = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,voxel_name)))[0]
 
         # copy svs data to local dir
         os.system('cp %s %s '%(twx_met_dir, twx_met_file))
