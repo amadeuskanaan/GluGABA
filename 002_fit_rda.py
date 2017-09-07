@@ -21,10 +21,8 @@ def lcmodel_rda(population, workspace_dir, study_day, voxel_name, sequence):
 
         # Run lcmodel bin2raw
         if not os.path.isfile(os.path.join(h2o_raw, 'RAW')):
-            met_bin2raw = ['/home/raid3/kanaan/.lcmodel/siemens/bin2raw', '%s' % met, '%s/' % lcmodel_dir, 'met']
-            h2o_bin2raw = ['/home/raid3/kanaan/.lcmodel/siemens/bin2raw', '%s' % h2o, '%s/' % lcmodel_dir, 'h2o']
-            subprocess.call(met_bin2raw)
-            subprocess.call(h2o_bin2raw)
+            os.system('/home/raid3/kanaan/.lcmodel/siemens/bin2raw %s %s met'%(met, lcmodel_dir))
+            os.system('/home/raid3/kanaan/.lcmodel/siemens/bin2raw %s %s h2o'%(h2o, lcmodel_dir))
 
 lcmodel_rda(['KA3X'], ssri_workspace, 'day1', 'ACC', 'PRESS')
 
