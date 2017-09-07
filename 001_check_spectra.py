@@ -48,8 +48,8 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
 
         if not os.listdir(rda_met_out):
             print 'Copying RDA data for Subject %s voxel %s' % (subject, voxel_name)
-            os.system('cp %s %s/%s.rda' %(rda_met_src, rda_met_out, vox))
-            os.system('cp %s %s/%s_w.rda' %(rda_h2o_src, rda_h2o_out, vox))
+            os.system('cp %s %s/%s.rda' %(rda_met_src, rda_met_out, voxel_name))
+            os.system('cp %s %s/%s_w.rda' %(rda_h2o_src, rda_h2o_out, voxel_name))
         else:
             print 'RDA data for Subject %s voxel %s already copied' %(subject, voxel_name)
 
