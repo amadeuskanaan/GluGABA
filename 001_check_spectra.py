@@ -35,16 +35,18 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
         else:
             print 'TWIX data for Subject %s voxel %s already copied' %(subject, voxel_name)
 
-        rda_met_src  = os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,voxel_name))
-        rda_h2o_src = os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,voxel_name))
 
+        #COPY RDA
         if sequence is 'MEGA_PRESS':
-            rda_met_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name[:-1]))
-            rda_h2o_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name[:-1]))
+            vox = voxel_name[:-1]
         else:
-            rda_met_out = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', voxel_name))
-            rda_h2o_out = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w' % voxel_name))
+            vox = voxel_name
 
+        rda_met_src  = os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,vox))
+        rda_h2o_src = os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,vox))
+
+        rda_met_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name))
+        rda_h2o_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name))
 
         if not os.listdir(rda_met_out):
             print 'Copying RDA data for Subject %s voxel %s' % (subject, voxel_name)
