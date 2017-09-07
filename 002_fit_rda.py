@@ -15,7 +15,7 @@ def lcmodel_rda(population, workspace_dir, study_day, voxel_name, sequence):
         met = os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', voxel_name, '%s.rda'%voxel_name)
         h2o = os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name, '%s_w.rda'%voxel_name)
 
-        lcmodel_dir = mkdir_path(os.path.join(subject_dir, 'LCMODEL', voxel_name, 'RDA', voxel_name))
+        lcmodel_dir = mkdir_path(os.path.join(subject_dir, 'LCMODEL_RDA', voxel_name))
         met_raw     = mkdir_path(os.path.join(lcmodel_dir, 'met'))
         h2o_raw     = mkdir_path(os.path.join(lcmodel_dir, 'h2o'))
 
