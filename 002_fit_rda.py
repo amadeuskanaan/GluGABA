@@ -9,9 +9,9 @@ def lcmodel_rda(population, workspace_dir, study_day, voxel_name, sequence):
 
     for subject in population:
 
-
         #I/O
         subject_dir = mkdir_path(os.path.join(workspace_dir, subject, study_day))
+        os.system('chmod -R 750 * ')
         met = os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', voxel_name, '%s.rda'%voxel_name)
         h2o = os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name, '%s_w.rda'%voxel_name)
 
