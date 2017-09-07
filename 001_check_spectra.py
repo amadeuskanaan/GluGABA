@@ -28,8 +28,10 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
         twx_met_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX',  voxel_name))
         twx_h20_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name))
 
-        os.system('cp %s %s ' % (twx_met_src, twx_met_out))
-        os.system('cp %s %s ' % (twx_h2o_src, twx_h20_out))
+        if not os.listdir(twx_met_out):
+            print 'Copying TWIX data for Subject %s voxel %s' %(subject, voxel_name)
+            os.system('cp %s %s ' % (twx_met_src, twx_met_out))
+            os.system('cp %s %s ' % (twx_h2o_src, twx_h20_out))
 
 
         # rda_met_dir  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name))
