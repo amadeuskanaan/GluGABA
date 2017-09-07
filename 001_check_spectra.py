@@ -19,8 +19,7 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
             seq = 'mp'
 
 
-        ########## for svs_type in ['TWIX', 'RDA']:
-
+        ##COPY TWIX
 
         twx_met_src = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', voxel_name, '*'))[0]
         twx_h2o_src = glob.glob(os.path.join(subject_afs, 'SVS', voxel_name, 'TWIX', '%s_w'%voxel_name, '*'))[0]
@@ -30,11 +29,10 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
 
         if not os.listdir(twx_met_out):
             print 'Copying TWIX data for Subject %s voxel %s' %(subject, voxel_name)
-            os.system('cp %s %s ' % (twx_met_src, twx_met_out))
-            os.system('cp %s %s ' % (twx_h2o_src, twx_h2o_out))
+            os.system('cp %s %s/%s.dat' % (twx_met_src, twx_met_out, voxel_name))
+            os.system('cp %s %s/%s_w.dat ' % (twx_h2o_src, twx_h2o_out, voxel_name))
         else:
             print 'TWIX data for Subject %s voxel %s already copied' %(subject, voxel_name)
-
 
         #COPY RDA
         if sequence is 'MEGA_PRESS':
@@ -50,8 +48,8 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
 
         if not os.listdir(rda_met_out):
             print 'Copying RDA data for Subject %s voxel %s' % (subject, voxel_name)
-            os.system('cp %s %s' %(rda_met_src, rda_met_out))
-            os.system('cp %s %s' %(rda_h2o_src, rda_h2o_out))
+            os.system('cp %s %s/%s.rda' %(rda_met_src, rda_met_out, vox))
+            os.system('cp %s %s/%s_w.rda' %(rda_h2o_src, rda_h2o_out, vox))
         else:
             print 'RDA data for Subject %s voxel %s already copied' %(subject, voxel_name)
 
