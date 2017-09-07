@@ -24,4 +24,5 @@ def lcmodel_rda(population, workspace_dir, study_day, voxel_name, sequence):
             os.system('/home/raid3/kanaan/.lcmodel/siemens/bin2raw %s %s met'%(met, lcmodel_dir))
             os.system('/home/raid3/kanaan/.lcmodel/siemens/bin2raw %s %s h2o'%(h2o, lcmodel_dir))
 
+
 lcmodel_rda(['KA3X'], ssri_workspace, 'day1', 'ACC', 'PRESS')
