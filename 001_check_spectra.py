@@ -38,8 +38,13 @@ def check_spectra(population, workspace_dir, afs_dir, study_day, voxel_name, seq
         rda_met_src  = os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%s.rda'%(seq,voxel_name))
         rda_h2o_src = os.path.join(subject_afs, 'SVS', voxel_name, 'RDA', '%s%sref.rda'%(seq,voxel_name))
 
-        rda_met_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name))
-        rda_h2o_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name))
+        if sequence is 'MEGA_PRESS':
+            rda_met_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA',  voxel_name[:-1]))
+            rda_h2o_out  = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w'%voxel_name[:-1]))
+        else:
+            rda_met_out = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', voxel_name))
+            rda_h2o_out = mkdir_path(os.path.join(subject_dir, 'SVS', voxel_name, 'RDA', '%s_w' % voxel_name))
+
 
         if not os.listdir(rda_met_out):
             print 'Copying RDA data for Subject %s voxel %s' % (subject, voxel_name)
